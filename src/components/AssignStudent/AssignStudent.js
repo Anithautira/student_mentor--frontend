@@ -14,13 +14,15 @@ function AssignStudent() {
     axios.get('https://student-mentor-backend-p9iv.onrender.com')
       .then((response) => {
         setAllMentors(response.data.data)
+        console.log(response.data.data)
       });
 
-    axios.get('https://student-mentor-backend-p9iv.onrender.com')
+    axios.get('https://student-mentor-backend-p9iv.onrender.com/getAllStudents')
       .then((response) => {
+        console.log(response.data.data)
         setAllStudents(response.data.data)
       });
-  }, [setAllMentors, setAllStudents])
+  }, [setAllMentors,setAllStudents])
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -56,6 +58,7 @@ const action = (
     }
     if (mentorSelectError.innerText === "" && studentSelectError.innerText === "") {
       const studentEmail = allStudents.filter((elem) => studentSelect.value === elem.studentName)
+      
       const assignedMentor = {
         assignedMentor: mentorSelect.value
       }

@@ -44,7 +44,9 @@ const action = (
       assignedMentor:mentorSelect.value
     }
     const studentEmail = allStudents.filter((elem) => studentSelect.value === elem.studentName)
-    axios.put(`hhttps://student-mentor-backend-p9iv.onrender.com/assignMentor/${studentEmail[0].studentEmailId}`, newMentor)
+    console.log(studentEmail)
+  
+    axios.put(`https://student-mentor-backend-p9iv.onrender.com/assignMentor/${studentEmail[0].studentEmailId}`, newMentor)
         .then((response) => {
           setOpen(true)
         });
